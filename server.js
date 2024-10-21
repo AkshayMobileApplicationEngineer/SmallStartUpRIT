@@ -4,15 +4,14 @@ import path from 'path';
 import express from 'express'; // Import express for static file serving
 import { fileURLToPath } from 'url'; // Needed to define __dirname with ES6 modules
 import { dirname } from 'path'; // Import dirname from path
-import { app } from './public/backend/app.js'; // Correct ES6 import
+import  app  from './app.mjs'; // Correct ES6 import
 
-import ApiRouter from './public/backend/Router/ApiRouter.router.js'; // Adjust according to structure
 
 // Get __filename and __dirname in ES6 module context
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename); // Use dirname to get __dirname
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
